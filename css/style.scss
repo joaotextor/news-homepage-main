@@ -14,6 +14,10 @@
 
 }
 
+html {
+    height: 100%;
+}
+
 :root {
     font-size: 10px;
     font-family: 'Inter', sans-serif;
@@ -21,10 +25,12 @@
 
 body {
     font-size: 1.5rem;
+    width: 100vw;
 }
 
 .container {
     padding: 5rem 15rem;
+    height: auto;
 
     /*
     
@@ -163,6 +169,7 @@ body {
             background-color: var(--color-secondary-vdblue);
             color: var(--color-secondary-white);
             flex-basis: 25%;
+            height: 100%;
             padding: 3rem 2.5rem;
 
             h2 {
@@ -182,7 +189,7 @@ body {
                 a {
                     text-decoration: none;
 
-                    &:visited {
+                    &:any-link {
                         color: var(--color-secondary-white)
                     }
                     
@@ -194,7 +201,7 @@ body {
                 p {
 
                     color: var(--color-secondary-blue);
-                    font-size: 1.3rem;
+                    font-size: 1.5rem;
                     line-height: 2.6rem;
 
                 }
@@ -205,12 +212,84 @@ body {
 
     }
 
+    /*
+    
+    * NEWS
+    
+    */
+
+    .lastNews {
+        margin-top: 7rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 3rem;
+
+        .news {
+
+            
+            
+            a {
+                text-decoration: none;
+                display: flex;
+
+                &:any-link {
+                    color: black;
+                }
+
+                div {
+
+                    //min-height: 40px;
+                                       
+                    img {
+                        width: 11rem;
+                    }
+                }
+
+                .newsContent {
+                    
+                    margin-left: 2rem;
+
+                    span {
+                        color: var(--color-secondary-blue);
+                        font-size: 3rem;
+                        font-weight: 700;
+                    }
+
+                    h4 {
+                        margin: 1rem 0;
+                        color: var(--color-secondary-vdblue);
+                        font-size: 2rem;
+                    }
+
+                    p {
+                        color: var(--color-secondary-darkblue);
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+
+    }
 }
 
-@media (max-width: 764px) {
+.attribution { 
+    margin: 0 auto;
+    width: 100%;
+    //position: absolute;
+    font-size: 11px; 
+    text-align: center; 
+
+    a { 
+        color: hsl(228, 45%, 44%); 
+    }
+}
+
+
+@media (max-width: 860px) {
     
     .container {
-        padding: 3rem 4rem;
+        padding: 3rem 4rem 0 4rem;
+        height: auto;
 
     /*
     
@@ -219,6 +298,8 @@ body {
     */
 
         #header {
+
+            
     
             #nav ul {
                 gap: 1rem;
@@ -228,19 +309,104 @@ body {
                 }
             }
     
-            
         }
+
+ /*
+        
+        * MAIN
+        
+        */
+
+        #main {
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            height: auto;
+            margin-right: 0;
+            
+
+            .main-content {
+                width: 100vh;
+                flex-basis: 100%;
+
+                .img {
+
+                    width: 100%;
+
+                    .imgDesktop {
+                        display: none;
+                    }
+
+                    .imgMobile {
+                        display: block;
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .titleweb3 {
+                    
+                    flex-basis: 100%;
+
+                    h1 {
+                        margin-top: 2rem;
+                        font-size: 4rem;
+                        line-height: 4rem;
+                        font-weight: 800;
+                    }
+                }
+
+                .paragraph {
+                    width: 100%;
+                    flex-basis: 100%;
+                }
+            
+                
+            }
+
+            .sidebar {
+                flex-basis: 100%;
+            }
+        }
+
+        .lastNews {
+
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+
+            .news {
+                width: auto;
+
+                a {
+
+                    .newsContent {
+
+                        width: 90%;
+                    }
+
+                }
+            }
+
+        }
+
+
     }
 
 }
 
-@media (max-width: 496px) {
+@media (max-width: 510px) {
 
     .container {
 
-        height: 100vh;
+        height: auto;
         width: 100%;
-        padding: 4rem 2rem;
+        padding: 4rem 2rem 0 2rem;
         
     /*
     
@@ -250,7 +416,7 @@ body {
         
         #header {
 
-            width: 90%;
+            width: auto;
     
             #nav {
                 background-color: white;
@@ -259,9 +425,9 @@ body {
                 min-width: 60vw;
                 position: absolute;
                 padding-left: 4rem;
-                right: 0;
+                right: -40px;
                 top: 0;
-                transition: height 1000ms ease;
+                transition: height 300ms ease;
 
                 .menuopen {
                     top: 0;
@@ -324,10 +490,17 @@ body {
             
         }
 
+        /*
+        
+        * MAIN
+        
+        */
+
         #main {
             flex-direction: row;
             flex-wrap: wrap;
-            width: 90%;
+            width: 100%;
+            height: auto;
             margin-right: 0;
             
 
@@ -367,9 +540,6 @@ body {
                 .paragraph {
                     width: 100%;
                     flex-basis: 100%;
-                    // p {
-
-                    // }
                 }
             
                 
@@ -380,20 +550,14 @@ body {
             }
         }
 
-        .attribution { 
-            bottom: 10px;
-            position: fixed;
-            font-size: 11px; 
-            text-align: center; 
-
-            a { 
-                color: hsl(228, 45%, 44%); 
-            }
-        }
     }
 
     .container:has(#menu-toggle:checked) {
         background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .attribution { 
+        margin-left: 20px;
     }
 
     

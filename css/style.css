@@ -10,6 +10,10 @@
   --color-secondary-vdblue: hsl(240, 100%, 5%);
 }
 
+html {
+  height: 100%;
+}
+
 :root {
   font-size: 10px;
   font-family: "Inter", sans-serif;
@@ -17,10 +21,12 @@
 
 body {
   font-size: 1.5rem;
+  width: 100vw;
 }
 
 .container {
   padding: 5rem 15rem;
+  height: auto;
   /*
 
   * HEADER - MENU
@@ -29,6 +35,11 @@ body {
   /*
 
   * MAIN
+
+  */
+  /*
+
+  * NEWS
 
   */
 }
@@ -122,6 +133,7 @@ body {
   background-color: var(--color-secondary-vdblue);
   color: var(--color-secondary-white);
   flex-basis: 25%;
+  height: 100%;
   padding: 3rem 2.5rem;
 }
 .container #main .sidebar h2 {
@@ -138,7 +150,13 @@ body {
 .container #main .sidebar div a {
   text-decoration: none;
 }
-.container #main .sidebar div a:visited {
+.container #main .sidebar div a:-webkit-any-link {
+  color: var(--color-secondary-white);
+}
+.container #main .sidebar div a:-moz-any-link {
+  color: var(--color-secondary-white);
+}
+.container #main .sidebar div a:any-link {
   color: var(--color-secondary-white);
 }
 .container #main .sidebar div a h3 {
@@ -146,18 +164,73 @@ body {
 }
 .container #main .sidebar div p {
   color: var(--color-secondary-blue);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   line-height: 2.6rem;
 }
+.container .lastNews {
+  margin-top: 7rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+.container .lastNews .news a {
+  text-decoration: none;
+  display: flex;
+}
+.container .lastNews .news a:-webkit-any-link {
+  color: black;
+}
+.container .lastNews .news a:-moz-any-link {
+  color: black;
+}
+.container .lastNews .news a:any-link {
+  color: black;
+}
+.container .lastNews .news a div img {
+  width: 11rem;
+}
+.container .lastNews .news a .newsContent {
+  margin-left: 2rem;
+}
+.container .lastNews .news a .newsContent span {
+  color: var(--color-secondary-blue);
+  font-size: 3rem;
+  font-weight: 700;
+}
+.container .lastNews .news a .newsContent h4 {
+  margin: 1rem 0;
+  color: var(--color-secondary-vdblue);
+  font-size: 2rem;
+}
+.container .lastNews .news a .newsContent p {
+  color: var(--color-secondary-darkblue);
+  font-size: 1.5rem;
+}
 
-@media (max-width: 764px) {
+.attribution {
+  margin: 0 auto;
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228deg, 45%, 44%);
+}
+
+@media (max-width: 860px) {
   .container {
-    padding: 3rem 4rem;
+    padding: 3rem 4rem 0 4rem;
+    height: auto;
     /*
 
     * HEADER 
 
     */
+    /*
+
+           * MAIN
+
+           */
   }
   .container #header #nav ul {
     gap: 1rem;
@@ -165,20 +238,78 @@ body {
   .container #header #nav ul li a {
     font-size: 1.4rem;
   }
-}
-@media (max-width: 496px) {
-  .container {
-    height: 100vh;
+  .container #main {
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 100%;
-    padding: 4rem 2rem;
+    height: auto;
+    margin-right: 0;
+  }
+  .container #main .main-content {
+    width: 100vh;
+    flex-basis: 100%;
+  }
+  .container #main .main-content .img {
+    width: 100%;
+  }
+  .container #main .main-content .img .imgDesktop {
+    display: none;
+  }
+  .container #main .main-content .img .imgMobile {
+    display: block;
+    width: 100%;
+  }
+  .container #main .main-content .img .imgMobile img {
+    width: 100%;
+  }
+  .container #main .main-content .titleweb3 {
+    flex-basis: 100%;
+  }
+  .container #main .main-content .titleweb3 h1 {
+    margin-top: 2rem;
+    font-size: 4rem;
+    line-height: 4rem;
+    font-weight: 800;
+  }
+  .container #main .main-content .paragraph {
+    width: 100%;
+    flex-basis: 100%;
+  }
+  .container #main .sidebar {
+    flex-basis: 100%;
+  }
+  .container .lastNews {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .container .lastNews .news {
+    width: auto;
+  }
+  .container .lastNews .news a .newsContent {
+    width: 90%;
+  }
+}
+@media (max-width: 510px) {
+  .container {
+    height: auto;
+    width: 100%;
+    padding: 4rem 2rem 0 2rem;
     /*
 
     * HEADER 
 
     */
+    /*
+
+    * MAIN
+
+    */
   }
   .container #header {
-    width: 90%;
+    width: auto;
   }
   .container #header #nav {
     background-color: white;
@@ -187,9 +318,9 @@ body {
     min-width: 60vw;
     position: absolute;
     padding-left: 4rem;
-    right: 0;
+    right: -40px;
     top: 0;
-    transition: height 1000ms ease;
+    transition: height 300ms ease;
   }
   .container #header #nav .menuopen {
     top: 0;
@@ -236,7 +367,8 @@ body {
   .container #main {
     flex-direction: row;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
+    height: auto;
     margin-right: 0;
   }
   .container #main .main-content {
@@ -271,16 +403,10 @@ body {
   .container #main .sidebar {
     flex-basis: 100%;
   }
-  .container .attribution {
-    bottom: 10px;
-    position: fixed;
-    font-size: 11px;
-    text-align: center;
-  }
-  .container .attribution a {
-    color: hsl(228deg, 45%, 44%);
-  }
   .container:has(#menu-toggle:checked) {
     background-color: rgba(0, 0, 0, 0.4);
+  }
+  .attribution {
+    margin-left: 20px;
   }
 }/*# sourceMappingURL=style.css.map */
