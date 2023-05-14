@@ -21,7 +21,6 @@ html {
 
 body {
   font-size: 1.5rem;
-  width: 100vw;
 }
 
 .container {
@@ -124,7 +123,7 @@ body {
   text-transform: uppercase;
   background-color: var(--color-primary-red);
   border-width: 0.5px;
-  border-color: hsl(5deg, 86%, 66%);
+  border-color: hsl(5, 86%, 66%);
   color: var(--color-secondary-white);
   font-weight: 700;
   cursor: pointer;
@@ -150,9 +149,6 @@ body {
 .container #main .sidebar div a {
   text-decoration: none;
 }
-.container #main .sidebar div a:-webkit-any-link {
-  color: var(--color-secondary-white);
-}
 .container #main .sidebar div a:-moz-any-link {
   color: var(--color-secondary-white);
 }
@@ -176,9 +172,6 @@ body {
 .container .lastNews .news a {
   text-decoration: none;
   display: flex;
-}
-.container .lastNews .news a:-webkit-any-link {
-  color: black;
 }
 .container .lastNews .news a:-moz-any-link {
   color: black;
@@ -214,7 +207,7 @@ body {
   text-align: center;
 }
 .attribution a {
-  color: hsl(228deg, 45%, 44%);
+  color: hsl(228, 45%, 44%);
 }
 
 @media (max-width: 860px) {
